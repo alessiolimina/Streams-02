@@ -21,8 +21,7 @@ public class Start {
          * Creating a new BufferedWriter, to use in combination with FileWriter to write a file
          */
 
-        try {
-            File file = new File("D:\\Documenti Alessio\\Develhope\\Corso Java\\GIT\\Streams 02\\src\\file.txt");
+        try { File file = new File("D:\\Documenti Alessio\\Develhope\\Corso Java\\GIT\\Streams 02\\src\\file.txt");
             if (file.exists()) {
                 System.out.println("Alert: the file already exists, I'll overwrite it");
             } else {
@@ -42,14 +41,14 @@ public class Start {
             /**
              * Create a String time that contains the formatted date/time
              * write the String time in the new .txt file
+             * finally, insert all the code in a try/catch statement
              */
 
             String time = localDateTime.format(dateTimeFormatter);
             bufferedWriter.write("The current date/time is " + time);
             bufferedWriter.close();
 
-        } catch (Exception e) {
-            e.printStackTrace();
+            } catch (Exception e) {e.printStackTrace();
         }
     }
 }
