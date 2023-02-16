@@ -5,6 +5,7 @@ package it.develhope.streams;
  * @author alessiolimina
  */
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,13 +18,13 @@ public class Start {
         /**
         * * Creating a new File, specifying the pathname;
         * if the file already exists, the program will inform the user about overwrite it;
-        * Creating a new FileWriter
+        * Creating a new BufferedWriter, to use in combination with FileWriter to write a file
         */
 
         File file = new File("D:\\Documenti Alessio\\Develhope\\Corso Java\\GIT\\Streams 02\\src\\file.txt");
         if (file.exists()) {System.out.println("Alert: the file already exists, I'll overwrite it");
         } else {System.out.println("Roger! New file created!");}
-        FileWriter fileWriter = new FileWriter(file,false);
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file,false));
 
         /**
          * Creating the current date/time with seconds
@@ -40,8 +41,8 @@ public class Start {
          */
 
         String time = localDateTime.format(dateTimeFormatter);
-        fileWriter.write("The current date/time is " + time);
-        fileWriter.close();
+        bufferedWriter.write("The current date/time is " + time);
+        bufferedWriter.close();
 
         }
     }
