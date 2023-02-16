@@ -18,16 +18,20 @@ public class Start {
         /**
          * Creating a new File, specifying the pathname;
          * if the file already exists, the program will inform the user about overwrite it;
-         * Creating a new BufferedWriter, to use in combination with FileWriter to write a file
          */
 
         try { File file = new File("D:\\Documenti Alessio\\Develhope\\Corso Java\\GIT\\Streams 02\\src\\file.txt");
-            if (file.exists()) {
-                System.out.println("Alert: the file already exists, I'll overwrite it");
-            } else {
-                System.out.println("Roger! New file created!");
+            if (file.exists()) {System.out.println("Alert: the file already exists, I'll overwrite it");
+            } else {System.out.println("Roger! New file created!");
             }
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
+
+            /**
+             * Creating a new FileWriter with, as parameters, the file to write and the boolean append
+             * Creating a new BufferedWriter, to use in combination with FileWriter (as his parameter)
+             */
+
+            FileWriter fileWriter = new FileWriter(file,false);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
             /**
              * Creating the current date/time with seconds
